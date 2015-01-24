@@ -1,6 +1,7 @@
 /**
  * Created by Wouter on 1/24/2015.
  */
+import datastructuur.CustomerList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,8 +17,11 @@ public class ScenarioInitializer {
 
 
     public ScenarioInitializer() {
-        CustomerList customers = getCustomers(readContents(JSON_KLANT));
-        List orders = getOrders(customers);
+        Customer[] customersArray = getCustomers(readContents(JSON_KLANT));
+        CustomerList customers = new CustomerList();
+        for (Customer customer : customersArray) {
+            customers.add(customer);
+        }
 
         customers.shuffleArray(customers.getItems());
         System.out.print("\nBefore Merge : ");
