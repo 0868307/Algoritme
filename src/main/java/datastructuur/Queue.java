@@ -10,15 +10,15 @@ import java.util.Arrays;
 public class Queue {
     private Bestelling[] orders = new Bestelling[]{};
 
-    public Bestelling get() {
+    public Bestelling pop() {
         Bestelling res = orders[orders.length-1];
         orders = Arrays.copyOf(orders, orders.length - 1);
         return res;
     }
 
-    public void add(Bestelling bestelling) {
+    public void append(Bestelling bestelling) {
         orders = Arrays.copyOf(orders, orders.length + 1);
-        orders[orders.length] = bestelling;
+        orders[0] = bestelling;
     }
 
     public int length() {
