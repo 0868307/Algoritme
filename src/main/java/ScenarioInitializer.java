@@ -1,7 +1,6 @@
 /**
  * Created by Wouter on 1/24/2015.
  */
-import pojo.CustomerList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,8 +12,6 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class ScenarioInitializer {
-    public static final String JSON_KLANT = "./data/klant.json";
-
     public String readContents(String filename) {
         try {
             File file = new File(filename);

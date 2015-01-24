@@ -14,10 +14,6 @@ public class ProcessingTime {
         return time;
     }
 
-    public int getTimeInMins() {
-        return time / 60;
-    }
-
     @Override
     public String toString() {
         return "ProcessingTime{" +

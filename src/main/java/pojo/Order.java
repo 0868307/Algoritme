@@ -21,14 +21,6 @@ public class Order {
         customerWaiting = false;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public int getCustomerId() {
-        return customerId;
-    }
-
     public long getStartTime() {
         return startTime;
     }
@@ -51,14 +43,6 @@ public class Order {
 
     public void setComplete(boolean isComplete) {
         this.isComplete = isComplete;
-    }
-
-    public boolean isCustomerWaiting() {
-        return customerWaiting;
-    }
-
-    public void setCustomerWaiting(boolean customerWaiting) {
-        this.customerWaiting = customerWaiting;
     }
 
     @Override
