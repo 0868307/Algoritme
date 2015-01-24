@@ -33,7 +33,7 @@ public class CustomerList {
     public void mergeSort()
     {
         shuffleArray(items);
-        mergeSortById(items);
+        mergeSortByAge(items);
     }
 
     // shuffle function is from http://stackoverflow.com/questions/1519736/random-shuffling-of-an-array
@@ -50,7 +50,7 @@ public class CustomerList {
         }
     }
 
-    public void mergeSortById(Customer[] itemlist)
+    public void mergeSortByAge(Customer[] itemlist)
     {
         if (itemlist.length > 1) {
             int middle = Math.round(itemlist.length / 2);
@@ -62,13 +62,13 @@ public class CustomerList {
             for (int b = 0; b < itemlist.length-middle; b++) {
                 right[b] = itemlist[b+middle];
             }
-            mergeSortById(left);
-            mergeSortById(right);
+            mergeSortByAge(left);
+            mergeSortByAge(right);
 
             int i=0,n=0,x=0;
             while(i < left.length && n < right.length)
             {
-                if(left[i].getId() < right[n].getId()){
+                if(left[i].getLeeftijd() < right[n].getLeeftijd()){
                     itemlist[x] = left[i];
                     i = i+1;
                 }else{
