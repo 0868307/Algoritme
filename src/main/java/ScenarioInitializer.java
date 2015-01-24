@@ -14,6 +14,23 @@ import java.util.Random;
 
 public class ScenarioInitializer {
     public static final String JSON_KLANT = "./data/klant.json";
+    public static final int SCENARIO1 = 0;
+    public static final int SCENARIO2 = 1;
+    public static final int SCENARIO3 = 2;
+
+
+    public ScenarioInitializer(int scenario) {
+        List customers = getCustomers(JSON_KLANT);
+        List orders = getOrders(customers);
+        if(scenario == SCENARIO1)
+        {
+            Orde
+        }else if (scenario == SCENARIO2){
+
+        }else if (scenario == SCENARIO3){
+
+        }
+    }
 
     public String readContents(String filename) {
         try {
