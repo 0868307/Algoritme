@@ -11,14 +11,14 @@ public class Queue {
     private Order[] items = new Order[]{};
 
     public Order dequeue() {
-        Order res = items[items.length-1];
+        Order res = items[0];
         items = Arrays.copyOf(items, items.length - 1);
         return res;
     }
 
     public void enqueue(Order order) {
         items = Arrays.copyOf(items, items.length + 1);
-        items[0] = order;
+        items[items.length] = order;
     }
 
     public int length() {
