@@ -1,6 +1,7 @@
 /**
  * Created by Wouter on 1/24/2015.
  */
+import datastructuur.CustomerList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,22 +15,14 @@ import java.util.Random;
 
 public class ScenarioInitializer {
     public static final String JSON_KLANT = "./data/klant.json";
-    public static final int SCENARIO1 = 0;
-    public static final int SCENARIO2 = 1;
-    public static final int SCENARIO3 = 2;
 
 
-    public ScenarioInitializer(int scenario) {
-        List customers = getCustomers(JSON_KLANT);
+    public ScenarioInitializer() {
+        CustomerList customers = getCustomers(readContents(JSON_KLANT));
         List orders = getOrders(customers);
-        if(scenario == SCENARIO1)
-        {
-            Orde
-        }else if (scenario == SCENARIO2){
 
-        }else if (scenario == SCENARIO3){
+        customers.mergeSort();
 
-        }
     }
 
     public String readContents(String filename) {
@@ -51,8 +44,8 @@ public class ScenarioInitializer {
         return "{}";
     }
 
-    public List getCustomers(String jsonString) {
-        List<Customer> res = new ArrayList<Customer>();
+    public CustomerList getCustomers(String jsonString) {
+        CustomerList res = new CustomerList();
         JSONObject obj;
         try {
             obj = new JSONObject(jsonString);
@@ -77,15 +70,19 @@ public class ScenarioInitializer {
         return res;
     }
 
-    public List getOrders(List customers) {
+    public List getOrders(CustomerList customers) {
         List<Order> orders = new ArrayList<Order>();
         Random random = new Random();
         for (int i = 0; i < 50; i++) {
-            Customer randomCustomer = (Customer) customers.get(random.nextInt());
+            Customer randomCustomer = (Customer) customers.get(random.nextInt(customers.length()-1));
             Integer wait = random.nextInt(40) + 10;
             Order order = new Order(i, randomCustomer.getId(), wait);
             orders.add(order);
         }
         return orders;
+    }
+
+    public static void main(String[] args) {
+        new ScenarioInitializer();
     }
 }
