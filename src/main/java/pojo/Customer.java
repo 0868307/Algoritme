@@ -3,11 +3,11 @@ package pojo;
 /**
  * Created by Wouter on 1/24/2015.
  */
-public class Klant {
+public class Customer {
     private int id,leeftijd;
     private String Voornaam, tussenvoegsel, achternaam,geslacht, plaats, email;
 
-    public Klant(int id, int leeftijd, String voornaam, String tussenvoegsel, String achternaam, String geslacht, String plaats, String email) {
+    public Customer(int id, int leeftijd, String voornaam, String tussenvoegsel, String achternaam, String geslacht, String plaats, String email) {
         this.id = id;
         this.leeftijd = leeftijd;
         Voornaam = voornaam;
@@ -84,7 +84,7 @@ public class Klant {
 
     @Override
     public String toString() {
-        return "Klant{" +
+        return "Customer{" +
                 "id=" + id +
                 ", leeftijd=" + leeftijd +
                 ", Voornaam='" + Voornaam + '\'' +

@@ -1,6 +1,6 @@
 package datastructuur;
 
-import pojo.Klant;
+import pojo.Customer;
 
 /**
  * Created by Wouter on 1/24/2015.
@@ -15,12 +15,12 @@ public class Array {
     {
         return false;
     }
-    public boolean add(Klant klant)
+    public boolean add(Customer customer)
     {
 
         return false;
     }
-    public boolean remove(Klant klant)
+    public boolean remove(Customer customer)
     {
 
         return false;
@@ -29,7 +29,5 @@ public class Array {
     {
         return
     }
-
-
 
 }

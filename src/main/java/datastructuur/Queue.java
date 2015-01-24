@@ -1,6 +1,6 @@
 package datastructuur;
 
-import pojo.Bestelling;
+import pojo.Order;
 
 import java.util.Arrays;
 
@@ -8,24 +8,24 @@ import java.util.Arrays;
  * Created by darryl on 24-1-15.
  */
 public class Queue {
-    private Bestelling[] orders = new Bestelling[]{};
+    private Order[] items = new Order[]{};
 
-    public Bestelling pop() {
-        Bestelling res = orders[orders.length-1];
-        orders = Arrays.copyOf(orders, orders.length - 1);
+    public Order dequeue() {
+        Order res = items[items.length-1];
+        items = Arrays.copyOf(items, items.length - 1);
         return res;
     }
 
-    public void append(Bestelling bestelling) {
-        orders = Arrays.copyOf(orders, orders.length + 1);
-        orders[0] = bestelling;
+    public void enqueue(Order order) {
+        items = Arrays.copyOf(items, items.length + 1);
+        items[0] = order;
     }
 
     public int length() {
-        return orders.length;
+        return items.length;
     }
 
     public boolean empty() {
-        return orders.length == 0;
+        return items.length == 0;
     }
 }
