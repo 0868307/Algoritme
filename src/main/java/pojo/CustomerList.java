@@ -1,8 +1,6 @@
-package datastructuur;
+package pojo;
 
 import pojo.Customer;
-import pojo.Order;
-
 import java.util.Arrays;
 import java.util.Random;
 

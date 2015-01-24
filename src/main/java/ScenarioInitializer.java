@@ -1,7 +1,7 @@
 /**
  * Created by Wouter on 1/24/2015.
  */
-import datastructuur.CustomerList;
+import pojo.CustomerList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,53 +14,6 @@ import java.util.Random;
 
 public class ScenarioInitializer {
     public static final String JSON_KLANT = "./data/klant.json";
-
-
-    public ScenarioInitializer() {
-        Customer[] customersArray = getCustomers(readContents(JSON_KLANT));
-        CustomerList customers = new CustomerList();
-        for (Customer customer : customersArray) {
-            customers.add(customer);
-        }
-
-        customers.shuffleArray(customers.getItems());
-        System.out.print("\nBefore Merge : ");
-        for (Customer item : customers.getItems()) {
-            System.out.print(item.getLeeftijd() + "-");
-        }
-        customers.mergeSortByAge(customers.getItems());
-        System.out.print("\nAfter Merge : ");
-
-        for (Customer item : customers.getItems()) {
-            System.out.print(item.getLeeftijd()+"-");
-        }
-
-        System.out.print("\nLinear search for age 16 : ");
-        System.out.print(customers.linearSearchByLeeftijd(16));
-
-        System.out.print("\nLinear search for age 4 : ");
-        System.out.print(customers.linearSearchByLeeftijd(4));
-
-        System.out.print("\nBinary search for age 16 : ");
-        System.out.print(customers.binarySearch(customers.getItems(), 16));
-
-        System.out.print("\nBinary search for age 4 : ");
-        System.out.print(customers.binarySearch(customers.getItems(), 4));
-
-        customers.shuffleArray(customers.getItems());
-        System.out.print("\nBefore Insertion : ");
-        for (Customer item : customers.getItems()) {
-            System.out.print(item.getAchternaam() + "-");
-        }
-
-        customers.insertionSortByAchternaam(customers.getItems());
-        System.out.print("\nAfter Insertion : ");
-
-        for (Customer item : customers.getItems()) {
-            System.out.print(item.getAchternaam()+"-");
-        }
-
-    }
 
     public String readContents(String filename) {
         try {

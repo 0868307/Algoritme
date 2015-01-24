@@ -1,4 +1,4 @@
-import datastructuur.Printer;
+import pojo.Printer;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import pojo.Customer;

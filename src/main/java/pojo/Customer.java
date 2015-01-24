@@ -95,4 +95,37 @@ public class Customer {
                 ", email='" + email + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Customer customer = (Customer) o;
+
+        if (id != customer.id) return false;
+        if (leeftijd != customer.leeftijd) return false;
+        if (Voornaam != null ? !Voornaam.equals(customer.Voornaam) : customer.Voornaam != null) return false;
+        if (achternaam != null ? !achternaam.equals(customer.achternaam) : customer.achternaam != null) return false;
+        if (email != null ? !email.equals(customer.email) : customer.email != null) return false;
+        if (geslacht != null ? !geslacht.equals(customer.geslacht) : customer.geslacht != null) return false;
+        if (plaats != null ? !plaats.equals(customer.plaats) : customer.plaats != null) return false;
+        if (tussenvoegsel != null ? !tussenvoegsel.equals(customer.tussenvoegsel) : customer.tussenvoegsel != null)
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + leeftijd;
+        result = 31 * result + (Voornaam != null ? Voornaam.hashCode() : 0);
+        result = 31 * result + (tussenvoegsel != null ? tussenvoegsel.hashCode() : 0);
+        result = 31 * result + (achternaam != null ? achternaam.hashCode() : 0);
+        result = 31 * result + (geslacht != null ? geslacht.hashCode() : 0);
+        result = 31 * result + (plaats != null ? plaats.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        return result;
+    }
 }

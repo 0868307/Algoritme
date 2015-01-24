@@ -1,5 +1,6 @@
-package datastructuur;
+package pojo;
 
+import datastructuur.Queue;
 import pojo.Order;
 
 /**
