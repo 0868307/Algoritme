@@ -1,0 +1,64 @@
+{ "Klanten" : [
+	{
+		"id" : "1",
+		"Voornaam" : "Wouter",
+		"Tussenvoegsel" : "" ,
+		"Achternaam" : "Naloop",
+		"Leeftijd" : "21",
+		"Geslacht" : "M",
+		"Plaats" : "Rotterdam",
+		"Email" : "wouter@naloop.nl"
+	},
+	
+	{
+		"id" : "2",
+		"Voornaam" : "Darryll",
+		"Tussenvoegsel" : "" ,
+		"Achternaam" : "Amatsetam",
+		"Leeftijd" : "21",
+		"Geslacht" : "M",
+		"Plaats" : "Dordrecht",
+		"Email" : "dar_dar@hotmail.com"
+	},
+	{
+		"id" : "3",
+		"Voornaam" : "Annie",
+		"Tussenvoegsel" : "Jolanda" ,
+		"Achternaam" : "Naloop",
+		"Leeftijd" : "58",
+		"Geslacht" : "V",
+		"Plaats" : "Rotterdam",
+		"Email" : "annie@naloop.nl"
+	},
+	{
+		"id" : "4",
+		"Voornaam" : "Ron",
+		"Tussenvoegsel" : "" ,
+		"Achternaam" : "Naloop",
+		"Leeftijd" : "22",
+		"Geslacht" : "M",
+		"Plaats" : "Capelle a/d ijssel",
+		"Email" : "ron@naloop.nl"
+	},
+	{
+		"id" : "5",
+		"Voornaam" : "Kees",
+		"Tussenvoegsel" : "Jan" ,
+		"Achternaam" : "Plop",
+		"Leeftijd" : "16",
+		"Geslacht" : "M",
+		"Plaats" : "Nijmegen",
+		"Email" : "Keesjeboy@sjaak.nl"
+	},
+	{
+		"id" : "6",
+		"Voornaam" : "Pieter",
+		"Tussenvoegsel" : "Arend" ,
+		"Achternaam" : "Hoog",
+		"Leeftijd" : "5",
+		"Geslacht" : "M",
+		"Plaats" : "Eindhoven",
+		"Email" : "PietermachineHoog@hotmail.com"
+	}
+]}
+	
