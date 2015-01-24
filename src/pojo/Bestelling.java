@@ -1,6 +1,5 @@
-package Object;
+package pojo;
 
-import javax.print.attribute.standard.DateTimeAtCreation;
 import java.util.Date;
 
 /**
@@ -9,8 +8,8 @@ import java.util.Date;
 public class Bestelling {
     private int id, klantid;
     private Date start_tijd;
-    boolean verwerking;
-    double Duur;
+    private boolean verwerking;
+    private double Duur;
 
     public Bestelling(int id, int klantid, Date start_tijd, boolean verwerking, double duur) {
         this.id = id;
