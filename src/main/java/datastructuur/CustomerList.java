@@ -1,7 +1,6 @@
 package datastructuur;
 
 import pojo.Customer;
-import pojo.Order;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -13,8 +12,7 @@ public class CustomerList {
     private Customer[] items = new Customer[]{};
     public Customer get(int index)
     {
-        Customer customer = items[index];
-        return customer;
+        return items[index];
     }
     public int length()
     {
@@ -55,13 +53,9 @@ public class CustomerList {
         if (itemlist.length > 1) {
             int middle = Math.round(itemlist.length / 2);
             Customer[] left = new Customer[middle];
-            for (int a = 0; a < middle; a++) {
-                left[a] = itemlist[a];
-            }
+            System.arraycopy(itemlist, 0, left, 0, middle);
             Customer[] right = new Customer[itemlist.length - middle];
-            for (int b = 0; b < itemlist.length-middle; b++) {
-                right[b] = itemlist[b+middle];
-            }
+            System.arraycopy(itemlist, middle, right, 0, itemlist.length - middle);
             mergeSortById(left);
             mergeSortById(right);
 

@@ -12,13 +12,13 @@ public class Queue {
 
     public Order dequeue() {
         Order res = items[0];
-        items = Arrays.copyOf(items, items.length - 1);
+        System.arraycopy(items, 1, items, 0, items.length-1);
         return res;
     }
 
     public void enqueue(Order order) {
         items = Arrays.copyOf(items, items.length + 1);
-        items[items.length] = order;
+        items[items.length-1] = order;
     }
 
     public int length() {

@@ -1,24 +1,21 @@
 package pojo;
 
-import java.util.Calendar;
-import java.util.Date;
-
 /**
  * Created by Wouter on 1/24/2015.
  */
 public class Order {
     private int id, customerId;
-    private Date startTime;
+    private long startTime;
     private boolean currentlyProcessing;
-    private int maxProcessingTime;
+    private ProcessingTime maxProcessingTime;
     private boolean isComplete;
     private boolean customerWaiting;
 
     public Order(int id, int customerId, int maxProcessingTime) {
         this.id = id;
         this.customerId = customerId;
-        this.maxProcessingTime = maxProcessingTime;
-        startTime = Calendar.getInstance().getTime();
+        this.maxProcessingTime = new ProcessingTime(maxProcessingTime);
+        startTime = System.currentTimeMillis();
         currentlyProcessing = false;
         isComplete = false;
         customerWaiting = false;
@@ -32,7 +29,7 @@ public class Order {
         return customerId;
     }
 
-    public Date getStartTime() {
+    public long getStartTime() {
         return startTime;
     }
 
@@ -44,7 +41,7 @@ public class Order {
         this.currentlyProcessing = currentlyProcessing;
     }
 
-    public int getMaxProcessingTime() {
+    public ProcessingTime getMaxProcessingTime() {
         return maxProcessingTime;
     }
 

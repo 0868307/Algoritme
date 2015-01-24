@@ -1,11 +1,6 @@
 package datastructuur;
 
-import datastructuur.Queue;
 import pojo.Order;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by darryl on 24-1-15.
@@ -21,8 +16,8 @@ public class Printer {
     // Customer maakt een nieuwe order aan wordt gelijk afgehandeld OF
     // wordt aan bestaande orders toegevoegd indien er al een order staat
     public void placeOrder(Order order) {
-        System.out.println("Nieuwe order wordt geplaatst");
-        boolean isFree = orders.empty() && !currentOrder.isCurrentlyProcessing();
+        boolean isFree = orders.empty() && currentOrder == null ||
+                !currentOrder.isCurrentlyProcessing();
         if (isFree) {
             currentOrder = order;
             currentOrder.setCurrentlyProcessing(true);
@@ -31,24 +26,40 @@ public class Printer {
         }
     }
 
-    public void removeOrder() {
-        if (currentOrder.isComplete()) {
-            System.out.println("Oude order wordt verwijderd");
-            System.out.println("Nieuwe order wordt verwerkt");
-            currentOrder = orders.dequeue();
-            currentOrder.setCurrentlyProcessing(true);
+    public void finishOrder() {
+        if (currentOrder!= null && currentOrder.isComplete()) {
+            if (!orders.empty()) {
+                currentOrder = orders.dequeue();
+            } else {
+                currentOrder.setCurrentlyProcessing(false);
+            }
         }
     }
 
     public void updateOrder() {
-        SimpleDateFormat sdf = new SimpleDateFormat("mm");
-        Date now = Calendar.getInstance().getTime();
-        Integer nowMin = Integer.valueOf(sdf.format(now));
-        Integer startMin = Integer.valueOf(sdf.format(currentOrder.getStartTime()));
-        boolean pastMaxWaitingTime = nowMin - startMin > currentOrder.getMaxProcessingTime();
+        Long now = System.currentTimeMillis();
+        long startMin = currentOrder.getStartTime();
+        long orderMin = currentOrder.getMaxProcessingTime().getTime();
+        boolean pastMaxWaitingTime = now - startMin > orderMin;
         if (pastMaxWaitingTime) {
             currentOrder.setComplete(true);
-            removeOrder();
         }
+    }
+
+    public int getOrdersAmount() {
+        int length = orders.length();
+        if (currentOrder != null && currentOrder.isCurrentlyProcessing()) {
+            length += 1;
+        }
+        return length;
+    }
+
+    public boolean hasNoOrders() {
+        return orders.empty() && currentOrder == null ||
+                !currentOrder.isCurrentlyProcessing();
+    }
+
+    public Order getCurrentOrder() {
+        return currentOrder;
     }
 }

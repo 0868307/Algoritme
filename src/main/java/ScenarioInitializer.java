@@ -1,7 +1,6 @@
 /**
  * Created by Wouter on 1/24/2015.
  */
-import datastructuur.CustomerList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,22 +8,10 @@ import pojo.Customer;
 import pojo.Order;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Random;
 
 public class ScenarioInitializer {
-    public static final String JSON_KLANT = "./data/klant.json";
-
-
-    public ScenarioInitializer() {
-        CustomerList customers = getCustomers(readContents(JSON_KLANT));
-        List orders = getOrders(customers);
-
-        customers.mergeSort();
-
-    }
-
     public String readContents(String filename) {
         try {
             File file = new File(filename);
@@ -44,8 +31,8 @@ public class ScenarioInitializer {
         return "{}";
     }
 
-    public CustomerList getCustomers(String jsonString) {
-        CustomerList res = new CustomerList();
+    public Customer[] getCustomers(String jsonString) {
+        Customer[] res = new Customer[0];
         JSONObject obj;
         try {
             obj = new JSONObject(jsonString);
@@ -62,7 +49,8 @@ public class ScenarioInitializer {
                         currentObject.getString("plaats"),
                         currentObject.getString("email")
                 );
-                res.add(customer);
+                res = Arrays.copyOf(res, res.length + 1);
+                res[i] = customer;
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -70,16 +58,16 @@ public class ScenarioInitializer {
         return res;
     }
 
-    public List getOrders(CustomerList customers) {
-        List<Order> orders = new ArrayList<Order>();
+    public Order[] getOrders(Customer[] customers) {
+        Order[] res = new Order[50];
         Random random = new Random();
         for (int i = 0; i < 50; i++) {
-            Customer randomCustomer = (Customer) customers.get(random.nextInt(customers.length()-1));
-            Integer wait = random.nextInt(40) + 10;
+            Customer randomCustomer = customers[random.nextInt(customers.length - 1)];
+            Integer wait = random.nextInt(20) + 10;
             Order order = new Order(i, randomCustomer.getId(), wait);
-            orders.add(order);
+            res[i] = order;
         }
-        return orders;
+        return res;
     }
 
     public static void main(String[] args) {
