@@ -24,6 +24,17 @@ public class BinaryTree {
         }
         return this;
     }
+    public BinaryTree removeNode(Customer customer)
+    {
+        try {
+            head.getNode(customer).remove();
+        }catch (NullPointerException e)
+        {
+            e.printStackTrace();
+        }
+        return this;
+    }
+
 }
 class BinaryTreeNode {
         private Customer customer;
@@ -32,7 +43,29 @@ class BinaryTreeNode {
         public BinaryTreeNode(Customer customer) {
             this.customer = customer;
         }
-
+        public BinaryTreeNode getNode(Customer customer)
+        {
+            int id = customer.getId();
+            if(id < this.customer.getId()) {
+                if(left.getValue() == customer )
+                {
+                    return left;
+                }
+                else{
+                    left.getNode(customer);
+                }
+            }
+            else if(id > this.customer.getId()) {
+                if(right.getValue() == customer)
+                {
+                    return right;
+                }
+                else{
+                    right.getNode(customer);
+                }
+            }
+            return null;
+        }
         public Customer getValue() {
             return customer;
         }
@@ -57,11 +90,28 @@ class BinaryTreeNode {
             }
             return n;
         }
-        public BinaryTreeNode removeChild(BinaryTreeNode n){
-
-
-
-            return n;
+        public void remove(){
+            BinaryTreeNode lowest = this.right.getLastLeft();
+            lowest.parent = parent;
+            lowest.left = left;
+            lowest.right = right;
+            this.left.parent = lowest;
+            this.right.parent = lowest;
+            if(parent.left == this)
+            {
+                parent.left = lowest;
+            }else if(parent.right == this){
+                parent.right = lowest;
+            }
+        }
+        public BinaryTreeNode getLastLeft(){
+            if(this.left != null)
+            {
+                return this.left.getLastLeft();
+            }else
+            {
+                return this;
+            }
         }
         public String toString() {
             return ""+customer;
