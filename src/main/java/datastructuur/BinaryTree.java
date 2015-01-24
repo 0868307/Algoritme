@@ -10,6 +10,7 @@ public class BinaryTree {
 
     public BinaryTree() {
     }
+
     public BinaryTree(Customer[] customers) {
         for(int i=0;i<customers.length;i++) {
             addNode(customers[i]);
@@ -117,6 +118,3 @@ class BinaryTreeNode {
             return ""+customer;
         }
     }
-
-
-

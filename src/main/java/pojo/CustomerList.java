@@ -1,6 +1,5 @@
 package pojo;
 
-import pojo.Customer;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -13,18 +12,10 @@ public class CustomerList {
     {
         return items[index];
     }
-    public int length()
-    {
-        return items.length;
-    }
     public void add(Customer customer)
     {
         items = Arrays.copyOf(items, items.length + 1);
         items[items.length-1] = customer;
-    }
-    public void sort()
-    {
-
     }
     public void insertionSortByAchternaam(Customer[] itemlist)
     {
@@ -67,36 +58,6 @@ public class CustomerList {
     {
         for (Customer item : items) {
             if (item.getLeeftijd() == leeftijd) {
-                return item;
-            }
-        }
-        return null;
-    }
-
-    public Customer linearSearchByVoornaam(String voornaam )
-    {
-        for (Customer item : items) {
-            if (item.getVoornaam() == voornaam) {
-                return item;
-            }
-        }
-        return null;
-    }
-
-    public Customer linearSearchByAchternaam(String achternaam )
-    {
-        for (Customer item : items) {
-            if (item.getAchternaam() == achternaam) {
-                return item;
-            }
-        }
-        return null;
-    }
-
-    public Customer linearSearchById(int id )
-    {
-        for (Customer item : items) {
-            if (item.getId() == id) {
                 return item;
             }
         }
