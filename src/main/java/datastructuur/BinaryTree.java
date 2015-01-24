@@ -8,6 +8,9 @@ import pojo.Customer;
 public class BinaryTree {
     private BinaryTreeNode head = null;
 
+    public BinaryTree() {
+    }
+
     public BinaryTree(Customer[] customers) {
         for (Customer customer : customers) {
             addNode(customer);
@@ -22,4 +25,6 @@ public class BinaryTree {
         }
         return this;
     }
+
+
 }
