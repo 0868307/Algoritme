@@ -21,7 +21,8 @@ public class Printer {
     // wordt aan bestaande orders toegevoegd indien er al een order staat
     public void placeOrder(Order order) {
         System.out.println("Nieuwe order wordt geplaatst");
-        if (orders.empty() && !currentOrder.isCurrentlyProcessing()) {
+        boolean isFree = orders.empty() && !currentOrder.isCurrentlyProcessing();
+        if (isFree) {
             currentOrder = order;
             currentOrder.setCurrentlyProcessing(true);
         } else {
