@@ -11,7 +11,7 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.Random;
 
-public class ScenarioInitializer {
+public class TestSetup {
     public String readContents(String filename) {
         try {
             File file = new File(filename);
@@ -68,9 +68,5 @@ public class ScenarioInitializer {
             res[i] = order;
         }
         return res;
-    }
-
-    public static void main(String[] args) {
-        new ScenarioInitializer();
     }
 }

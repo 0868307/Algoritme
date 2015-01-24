@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 import pojo.Customer;
 import pojo.Order;
 
-import static pojo.Constants.JSON_KLANT;
-
 /**
  * Created by darryl on 24-1-15.
  */
@@ -15,7 +13,8 @@ public class TestScenario1 {
 
     @org.junit.Before
     public void setUp() throws Exception {
-        ScenarioInitializer initializer = new ScenarioInitializer();
+        final String JSON_KLANT = "./data/klant.json";
+        TestSetup initializer = new TestSetup();
         String jsonString = initializer.readContents(JSON_KLANT);
         customers = initializer.getCustomers(jsonString);
         orders = initializer.getOrders(customers);
