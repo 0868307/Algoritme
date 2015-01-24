@@ -1,64 +1,64 @@
-{ "Klanten" : [
+{ "klanten" : [
 	{
 		"id" : "1",
-		"Voornaam" : "Wouter",
-		"Tussenvoegsel" : "" ,
-		"Achternaam" : "Naloop",
-		"Leeftijd" : "21",
-		"Geslacht" : "M",
-		"Plaats" : "Rotterdam",
-		"Email" : "wouter@naloop.nl"
+		"voornaam" : "Wouter",
+		"tussenvoegsel" : "" ,
+		"achternaam" : "Naloop",
+		"leeftijd" : "21",
+		"geslacht" : "M",
+		"plaats" : "Rotterdam",
+		"email" : "wouter@naloop.nl"
 	},
 	
 	{
 		"id" : "2",
-		"Voornaam" : "Darryll",
-		"Tussenvoegsel" : "" ,
-		"Achternaam" : "Amatsetam",
-		"Leeftijd" : "21",
-		"Geslacht" : "M",
-		"Plaats" : "Dordrecht",
-		"Email" : "dar_dar@hotmail.com"
+		"voornaam" : "Darryl",
+		"tussenvoegsel" : "" ,
+		"achternaam" : "Amatsetam",
+		"leeftijd" : "25",
+		"geslacht" : "M",
+		"plaats" : "Dordrecht",
+		"email" : "dar_dar@hotmail.com"
 	},
 	{
 		"id" : "3",
-		"Voornaam" : "Annie",
-		"Tussenvoegsel" : "Jolanda" ,
-		"Achternaam" : "Naloop",
-		"Leeftijd" : "58",
-		"Geslacht" : "V",
-		"Plaats" : "Rotterdam",
-		"Email" : "annie@naloop.nl"
+		"voornaam" : "Annie",
+		"tussenvoegsel" : "Jolanda" ,
+		"achternaam" : "Naloop",
+		"leeftijd" : "58",
+		"geslacht" : "V",
+		"plaats" : "Rotterdam",
+		"email" : "annie@naloop.nl"
 	},
 	{
 		"id" : "4",
-		"Voornaam" : "Ron",
-		"Tussenvoegsel" : "" ,
-		"Achternaam" : "Naloop",
-		"Leeftijd" : "22",
-		"Geslacht" : "M",
-		"Plaats" : "Capelle a/d ijssel",
-		"Email" : "ron@naloop.nl"
+		"voornaam" : "Ron",
+		"tussenvoegsel" : "" ,
+		"achternaam" : "Naloop",
+		"leeftijd" : "22",
+		"geslacht" : "M",
+		"plaats" : "Capelle a/d ijssel",
+		"email" : "ron@naloop.nl"
 	},
 	{
 		"id" : "5",
-		"Voornaam" : "Kees",
-		"Tussenvoegsel" : "Jan" ,
-		"Achternaam" : "Plop",
-		"Leeftijd" : "16",
-		"Geslacht" : "M",
-		"Plaats" : "Nijmegen",
-		"Email" : "Keesjeboy@sjaak.nl"
+		"voornaam" : "Kees",
+		"tussenvoegsel" : "Jan" ,
+		"achternaam" : "Plop",
+		"leeftijd" : "16",
+		"geslacht" : "M",
+		"plaats" : "Nijmegen",
+		"email" : "Keesjeboy@sjaak.nl"
 	},
 	{
 		"id" : "6",
-		"Voornaam" : "Pieter",
-		"Tussenvoegsel" : "Arend" ,
-		"Achternaam" : "Hoog",
-		"Leeftijd" : "5",
-		"Geslacht" : "M",
-		"Plaats" : "Eindhoven",
-		"Email" : "PietermachineHoog@hotmail.com"
+		"voornaam" : "Pieter",
+		"tussenvoegsel" : "Arend" ,
+		"achternaam" : "Hoog",
+		"leeftijd" : "5",
+		"geslacht" : "M",
+		"plaats" : "Eindhoven",
+		"email" : "PietermachineHoog@hotmail.com"
 	}
 ]}
 	
