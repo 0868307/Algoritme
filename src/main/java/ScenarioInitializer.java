@@ -12,6 +12,52 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class ScenarioInitializer {
+    public static final String JSON_KLANT = "./data/klant.json";
+
+
+    public ScenarioInitializer() {
+        CustomerList customers = getCustomers(readContents(JSON_KLANT));
+        List orders = getOrders(customers);
+
+        customers.shuffleArray(customers.getItems());
+        System.out.print("\nBefore Merge : ");
+        for (Customer item : customers.getItems()) {
+            System.out.print(item.getLeeftijd() + "-");
+        }
+        customers.mergeSortByAge(customers.getItems());
+        System.out.print("\nAfter Merge : ");
+
+        for (Customer item : customers.getItems()) {
+            System.out.print(item.getLeeftijd()+"-");
+        }
+
+        System.out.print("\nLinear search for age 16 : ");
+        System.out.print(customers.linearSearchByLeeftijd(16));
+
+        System.out.print("\nLinear search for age 4 : ");
+        System.out.print(customers.linearSearchByLeeftijd(4));
+
+        System.out.print("\nBinary search for age 16 : ");
+        System.out.print(customers.binarySearch(customers.getItems(), 16));
+
+        System.out.print("\nBinary search for age 4 : ");
+        System.out.print(customers.binarySearch(customers.getItems(), 4));
+
+        customers.shuffleArray(customers.getItems());
+        System.out.print("\nBefore Insertion : ");
+        for (Customer item : customers.getItems()) {
+            System.out.print(item.getAchternaam() + "-");
+        }
+
+        customers.insertionSortByAchternaam(customers.getItems());
+        System.out.print("\nAfter Insertion : ");
+
+        for (Customer item : customers.getItems()) {
+            System.out.print(item.getAchternaam()+"-");
+        }
+
+    }
+
     public String readContents(String filename) {
         try {
             File file = new File(filename);
