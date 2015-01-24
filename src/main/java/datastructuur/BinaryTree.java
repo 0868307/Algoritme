@@ -41,6 +41,7 @@ class BinaryTreeNode {
         private Customer customer;
         private BinaryTreeNode parent,left,right;
 
+
         public BinaryTreeNode(Customer customer) {
             this.customer = customer;
         }
@@ -114,7 +115,25 @@ class BinaryTreeNode {
                 return this;
             }
         }
-        public String toString() {
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public BinaryTreeNode getParent() {
+        return parent;
+    }
+
+    public BinaryTreeNode getLeft() {
+        return left;
+    }
+
+    public BinaryTreeNode getRight() {
+        return right;
+    }
+
+    public String toString() {
             return ""+customer;
         }
     }
+
