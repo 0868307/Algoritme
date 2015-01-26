@@ -56,10 +56,10 @@ public class BinaryTree {
         if(currentNode != null)
         {
             System.out.println("---------------");
-            System.out.println("This : "+currentNode);
             if(currentNode.getParent() != null){
                 System.out.println("Parent : "+currentNode.getParent());
             }
+            System.out.println("This : "+currentNode);
             if(currentNode.getLeft() != null){
                 System.out.println("Left : " + currentNode.getLeft());
                 printNodes(currentNode.getLeft());
