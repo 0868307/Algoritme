@@ -1,8 +1,8 @@
-import pojo.Printer;
+import scenario1.Printer;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import pojo.Customer;
-import pojo.Order;
+import scenario2.Customer;
+import scenario1.Order;
 
 /**
  * Created by darryl on 24-1-15.

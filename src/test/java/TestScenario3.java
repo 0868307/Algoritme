@@ -1,7 +1,7 @@
-import datastructuur.BinaryTree;
+import scenario3.BinaryTree;
 import org.junit.Before;
 import org.junit.Test;
-import pojo.Customer;
+import scenario2.Customer;
 
 /**
  * Created by darryl on 24-1-15.

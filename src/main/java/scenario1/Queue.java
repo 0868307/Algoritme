@@ -1,8 +1,5 @@
-package datastructuur;
+package scenario1;
 
-import pojo.Order;
-
-import java.awt.*;
 import java.util.Arrays;
 
 /**

@@ -1,7 +1,4 @@
-package pojo;
-
-import datastructuur.Queue;
-import pojo.Order;
+package scenario1;
 
 /**
  * Created by darryl on 24-1-15.
@@ -14,8 +11,6 @@ public class Printer {
         this.orders = new Queue<Order>();
     }
 
-    // Customer maakt een nieuwe order aan wordt gelijk afgehandeld OF
-    // wordt aan bestaande orders toegevoegd indien er al een order staat
     public void placeOrder(Order order) {
         boolean isFree = orders.empty() && currentOrder == null ||
                 !currentOrder.isCurrentlyProcessing();

@@ -1,4 +1,4 @@
-package pojo;
+package scenario1;
 
 /**
  * Created by darryl on 24-1-15.

@@ -1,6 +1,4 @@
-package pojo;
-
-import java.util.HashMap;
+package scenario2;
 
 /**
  * Created by Wouter on 1/24/2015.

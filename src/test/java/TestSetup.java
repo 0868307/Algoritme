@@ -4,8 +4,8 @@
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import pojo.Customer;
-import pojo.Order;
+import scenario2.Customer;
+import scenario1.Order;
 
 import java.io.*;
 import java.util.Arrays;
