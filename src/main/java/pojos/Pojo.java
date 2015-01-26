@@ -26,6 +26,4 @@ public abstract class Pojo {
         }
         return null;
     }
-
-
 }

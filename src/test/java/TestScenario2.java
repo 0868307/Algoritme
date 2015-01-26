@@ -1,7 +1,7 @@
+import logic.CustomerList;
 import org.junit.Before;
 import org.junit.Test;
 import pojos.Customer;
-import logic.CustomerList;
 
 import static org.junit.Assert.*;
 

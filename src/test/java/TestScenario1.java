@@ -1,8 +1,10 @@
 import logic.Printer;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import pojos.Customer;
 import pojos.Order;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by darryl on 24-1-15.

@@ -1,13 +1,17 @@
 /**
  * Created by Wouter on 1/24/2015.
  */
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import pojos.Customer;
 import pojos.Order;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
 
