@@ -1,34 +1,37 @@
 package datastructuur;
 
 import pojo.Customer;
+import pojo.Pojo;
 
 /**
  * Created by Wouter on 1/24/2015.
  */
 public class BinaryTree {
     private BinaryTreeNode head = null;
+    private String id;
 
-    public BinaryTree() {
+    public BinaryTree(String id) {
+        this.id = id;
     }
 
-    public BinaryTree(Customer[] customers) {
-        for(int i=0;i<customers.length;i++) {
-            addNode(customers[i]);
+    public BinaryTree(Pojo[] object) {
+        for(int i=0;i<object.length;i++) {
+            addNode(object[i]);
         }
     }
 
-    public BinaryTree addNode(Customer customer) {
+    public BinaryTree addNode(Pojo object) {
         if(head == null) {
-            head = new BinaryTreeNode(customer);
+            head = new BinaryTreeNode(object,id);
         } else {
-            head.addChild(new BinaryTreeNode(customer));
+            head.addChild(new BinaryTreeNode(object,id));
         }
         return this;
     }
-    public BinaryTree removeNode(Customer customer)
+    public BinaryTree removeNode(Pojo object)
     {
         try {
-            head.getNode(customer).remove();
+            head.getNode(object).remove();
         }catch (NullPointerException e)
         {
             e.printStackTrace();
@@ -38,43 +41,46 @@ public class BinaryTree {
 
 }
 class BinaryTreeNode {
-        private Customer customer;
+        private Pojo object;
         private BinaryTreeNode parent,left,right;
+        private String idString;
 
 
-        public BinaryTreeNode(Customer customer) {
-            this.customer = customer;
+        public BinaryTreeNode(Pojo object, String idString) {
+            this.object = object;
+            this.idString = idString;
         }
-        public BinaryTreeNode getNode(Customer customer)
+        public BinaryTreeNode getNode(Pojo object)
         {
-            int id = customer.getId();
-            if(id < this.customer.getId()) {
-                if(left.getValue() == customer )
+            int id = object.getInteger(idString);
+            if(id < this.object.getInteger(idString)) {
+                if(left.getValue() == object )
                 {
                     return left;
                 }
                 else{
-                    left.getNode(customer);
+                    left.getNode(object);
                 }
             }
-            else if(id > this.customer.getId()) {
-                if(right.getValue() == customer)
+            else if(id > this.object.getInteger(idString)) {
+                if(right.getValue() == object)
                 {
                     return right;
                 }
                 else{
-                    right.getNode(customer);
+                    right.getNode(object);
                 }
             }
             return null;
         }
-        public Customer getValue() {
-            return customer;
+
+        public Pojo getValue() {
+            return object;
         }
 
         public BinaryTreeNode addChild(BinaryTreeNode n) {
-            int id = n.customer.getId();
-            if(id < customer.getId()) {
+            int id = n.object.getInteger(idString);
+            if(id < object.getInteger(idString)) {
                 if (left != null) {
                     left.addChild(n);
                 } else {
@@ -82,7 +88,7 @@ class BinaryTreeNode {
                     parent = this;
                 }
             }
-            else if(id > customer.getId()) {
+            else if(id > object.getInteger(idString)) {
                 if (right != null) {
                     right.addChild(n);
                 } else {
@@ -116,8 +122,8 @@ class BinaryTreeNode {
             }
         }
 
-    public Customer getCustomer() {
-        return customer;
+    public Pojo getObject() {
+        return object;
     }
 
     public BinaryTreeNode getParent() {
@@ -133,7 +139,7 @@ class BinaryTreeNode {
     }
 
     public String toString() {
-            return ""+customer;
+            return ""+object;
         }
     }
 

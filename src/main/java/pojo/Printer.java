@@ -7,11 +7,11 @@ import pojo.Order;
  * Created by darryl on 24-1-15.
  */
 public class Printer {
-    private Queue orders;
+    private Queue<Order> orders;
     private Order currentOrder;
 
     public Printer() {
-        this.orders = new Queue();
+        this.orders = new Queue<Order>();
     }
 
     // Customer maakt een nieuwe order aan wordt gelijk afgehandeld OF

@@ -18,12 +18,12 @@ public class TestScenario3 {
 
     @Test
     public void testInitBtree() throws Exception {
-        new BinaryTree();
+        new BinaryTree("id");
     }
 
     @Test
     public void testAddNodeBtree() throws Exception {
-        BinaryTree binaryTree = new BinaryTree();
+        BinaryTree binaryTree = new BinaryTree("id");
         Customer c1 = new Customer(
                 5,
                 33,
@@ -39,7 +39,7 @@ public class TestScenario3 {
 
     @Test
     public void testRemoveNodeBtree() throws Exception {
-        BinaryTree binaryTree = new BinaryTree();
+        BinaryTree binaryTree = new BinaryTree("id");
 
     }
 }

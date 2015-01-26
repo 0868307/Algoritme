@@ -1,21 +1,23 @@
 package pojo;
 
+import java.util.HashMap;
+
 /**
  * Created by Wouter on 1/24/2015.
  */
-public class Customer {
+public class Customer extends Pojo {
     private int id,leeftijd;
     private String voornaam, tussenvoegsel, achternaam,geslacht, plaats, email;
 
     public Customer(int id, int leeftijd, String voornaam, String tussenvoegsel, String achternaam, String geslacht, String plaats, String email) {
-        this.id = id;
-        this.leeftijd = leeftijd;
-        this.voornaam = voornaam;
-        this.tussenvoegsel = tussenvoegsel;
-        this.achternaam = achternaam;
-        this.geslacht = geslacht;
-        this.plaats = plaats;
-        this.email = email;
+        attributes.put("id",id);
+        attributes.put("leeftijd",leeftijd);
+        attributes.put("voornaam",voornaam);
+        attributes.put("tussenvoegsel",tussenvoegsel);
+        attributes.put("achternaam",achternaam);
+        attributes.put("geslacht",geslacht);
+        attributes.put("plaats",plaats);
+        attributes.put("email",email);
     }
 
     public int getId() {
