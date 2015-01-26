@@ -5,7 +5,7 @@ import java.util.HashMap;
 /**
  * Created by Wouter on 1/26/2015.
  */
-public class Pojo {
+public abstract class Pojo {
     protected HashMap<String, Object> attributes = new HashMap<String,Object>();
     public Pojo()
     {}

@@ -3,7 +3,7 @@ package pojo;
 /**
  * Created by Wouter on 1/24/2015.
  */
-public class Order extends Pojo {
+public class Order {
     private int id, customerId;
     private long startTime;
     private boolean currentlyProcessing;
