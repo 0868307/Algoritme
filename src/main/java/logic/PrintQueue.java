@@ -6,11 +6,11 @@ import pojos.Order;
 /**
  * Created by darryl on 24-1-15.
  */
-public class Printer {
+public class PrintQueue {
     private Queue<Order> orders;
     private Order currentOrder;
 
-    public Printer() {
+    public PrintQueue() {
         this.orders = new Queue<Order>();
     }
 
@@ -27,7 +27,7 @@ public class Printer {
 
     public void finishOrder() {
         if (currentOrder!= null && currentOrder.isComplete()) {
-            if (!orders.empty()) {
+            if (!orders.empty() && !currentOrder.isCurrentlyProcessing()) {
                 currentOrder = orders.dequeue();
             } else {
                 currentOrder.setCurrentlyProcessing(false);

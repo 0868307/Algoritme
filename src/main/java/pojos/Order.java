@@ -18,7 +18,19 @@ public class Order {
         startTime = System.currentTimeMillis();
         currentlyProcessing = false;
         isComplete = false;
-        customerWaiting = false;
+        customerWaiting = maxProcessingTime <= 15; 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public boolean isCustomerWaiting() {
+        return customerWaiting;
     }
 
     public long getStartTime() {
@@ -43,18 +55,5 @@ public class Order {
 
     public void setComplete(boolean isComplete) {
         this.isComplete = isComplete;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", customerId=" + customerId +
-                ", startTime=" + startTime +
-                ", currentlyProcessing=" + currentlyProcessing +
-                ", maxProcessingTime=" + maxProcessingTime +
-                ", isComplete=" + isComplete +
-                ", customerWaiting=" + customerWaiting +
-                '}';
     }
 }

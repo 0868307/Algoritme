@@ -1,4 +1,5 @@
-import logic.Printer;
+import logic.PrintQueue;
+import logic.PrintQueueAssignment;
 import org.junit.Test;
 import pojos.Customer;
 import pojos.Order;
@@ -23,12 +24,13 @@ public class TestScenario1 {
 
     @Test
     public void testPrinterInit() throws Exception {
-        new Printer();
+        new PrintQueue();
+        new PrintQueueAssignment();
     }
 
     @Test
     public void testPrinterQueue() throws Exception {
-        Printer p = new Printer();
+        PrintQueue p = new PrintQueue();
         assertTrue(p.hasNoOrders());
         p.placeOrder(orders[0]);
         p.placeOrder(orders[1]);
@@ -38,9 +40,21 @@ public class TestScenario1 {
     }
 
     @Test
+    public void testPrinterAssignment() {
+        PrintQueueAssignment printQueueAssignment = new PrintQueueAssignment();
+        for (Order order : orders) {
+            printQueueAssignment.processOrder(order);
+        }
+        Order fastOrder = printQueueAssignment.getFastQueue().getCurrentOrder();
+        Order slowOrder = printQueueAssignment.getSlowQueue().getCurrentOrder();
+        assertTrue(fastOrder.isCurrentlyProcessing());
+        assertTrue(slowOrder.isCurrentlyProcessing());
+    }
+
+    @Test
     public void testPrinterDequeue() throws Exception {
         int delayInSecs = 5;
-        Printer p = new Printer();
+        PrintQueue p = new PrintQueue();
         p.placeOrder(new Order(0, 0, delayInSecs));
         p.placeOrder(new Order(0, 0, delayInSecs));
         assertEquals(2, p.getOrdersAmount());
