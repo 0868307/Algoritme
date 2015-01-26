@@ -27,15 +27,49 @@ public class BinaryTree {
         }
         return this;
     }
-    public BinaryTree removeNode(Pojo object)
+    public void removeNode(Pojo object)
     {
-        try {
-            head.getNode(object).remove();
-        }catch (NullPointerException e)
-        {
-            e.printStackTrace();
+        if(object == head.getValue()){
+
+            head.remove();
+            if(head.getLeft() != null){
+                head = head.getLeft();
+            }else if(head.getRight() != null){
+                head = head.getRight();
+            }else{
+                head = null;
+            }
+        }else{
+            BinaryTreeNode node = head.getNode(object);
+            if(node != null)
+            {
+                node.remove();
+            }else{
+                System.out.println("node is not found");
+            }
         }
-        return this;
     }
+    public void print(){
+        printNodes(head);
+    }
+    public void printNodes(BinaryTreeNode currentNode){
+        if(currentNode != null)
+        {
+            System.out.println("---------------");
+            System.out.println("This : "+currentNode);
+            if(currentNode.getParent() != null){
+                System.out.println("Parent : "+currentNode.getParent());
+            }
+            if(currentNode.getLeft() != null){
+                System.out.println("Left : " + currentNode.getLeft());
+                printNodes(currentNode.getLeft());
+            }
+            if(currentNode.getRight() != null){
+                System.out.println("Right : " + currentNode.getRight());
+                printNodes(currentNode.getRight());
+            }
+        }
+    }
+
 
 }

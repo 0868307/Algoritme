@@ -15,28 +15,9 @@ class BinaryTreeNode {
         this.object = object;
         this.idString = idString;
     }
-    public BinaryTreeNode getNode(Pojo object)
+    public BinaryTreeNode getNode(Pojo pojo)
     {
-        int id = object.getInteger(idString);
-        if(id < this.object.getInteger(idString)) {
-            if(left.getValue() == object )
-            {
-                return left;
-            }
-            else{
-                left.getNode(object);
-            }
-        }
-        else if(id > this.object.getInteger(idString)) {
-            if(right.getValue() == object)
-            {
-                return right;
-            }
-            else{
-                right.getNode(object);
-            }
-        }
-        return null;
+        return inOrderTraversalR(pojo);
     }
 
     public Pojo getValue() {
@@ -50,7 +31,7 @@ class BinaryTreeNode {
                 left.addChild(n);
             } else {
                 left = n;
-                parent = this;
+                n.parent = this;
             }
         }
         else if(id > object.getInteger(idString)) {
@@ -58,25 +39,68 @@ class BinaryTreeNode {
                 right.addChild(n);
             } else {
                 right = n;
-                parent = this;
+                n.parent = this;
             }
         }
+
+
         return n;
     }
     public void remove(){
         BinaryTreeNode lowest = this.right.getLastLeft();
-        lowest.parent = parent;
-        lowest.left = left;
-        lowest.right = right;
-        this.left.parent = lowest;
-        this.right.parent = lowest;
-        if(parent.left == this)
+        if(lowest == this)
         {
-            parent.left = lowest;
-        }else if(parent.right == this){
-            parent.right = lowest;
+            lowest = this.right.getLastRight();
+        }
+
+        lowest.parent = parent;
+        if(lowest != left)
+        {
+            lowest.left = left;
+        }
+        if(lowest != right){
+            lowest.right = right;
+        }
+        if(parent != null)
+        {
+            if(parent.left != null){
+                if(parent.left.equals(this)){
+                    parent.left = lowest;
+                }
+            }
+            else if(parent.right != null){
+                if(parent.right.equals(this)){
+                    parent.right = lowest;
+                }
+            }
+        }
+
+    }
+    public BinaryTreeNode inOrderTraversalR(Pojo pojo)
+    {
+        if(this.getValue() == pojo ){
+            return this;
+        }
+        else{
+            BinaryTreeNode node;
+            if(left != null) {
+                node = right.inOrderTraversalR(pojo);
+                if(node.getValue() == pojo)
+                {
+                    return node;
+                }
+            }
+            if(right != null) {
+                node = right.inOrderTraversalR(pojo);
+                if(node.getValue() == pojo)
+                {
+                    return node;
+                }
+            }
+            return null;
         }
     }
+
     public BinaryTreeNode getLastLeft(){
         if(this.left != null)
         {
@@ -86,9 +110,14 @@ class BinaryTreeNode {
             return this;
         }
     }
-
-    public Pojo getObject() {
-        return object;
+    public BinaryTreeNode getLastRight(){
+        if(this.left != null)
+        {
+            return this.right.getLastRight();
+        }else
+        {
+            return this;
+        }
     }
 
     public BinaryTreeNode getParent() {
