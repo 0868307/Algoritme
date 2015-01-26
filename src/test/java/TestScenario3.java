@@ -1,7 +1,7 @@
-import scenario3.BinaryTree;
+import adt.BinaryTree;
 import org.junit.Before;
 import org.junit.Test;
-import scenario2.Customer;
+import pojos.Customer;
 
 /**
  * Created by darryl on 24-1-15.

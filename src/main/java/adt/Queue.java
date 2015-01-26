@@ -1,4 +1,4 @@
-package scenario1;
+package adt;
 
 import java.util.Arrays;
 

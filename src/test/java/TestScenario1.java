@@ -1,14 +1,13 @@
-import scenario1.Printer;
+import logic.Printer;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import scenario2.Customer;
-import scenario1.Order;
+import pojos.Customer;
+import pojos.Order;
 
 /**
  * Created by darryl on 24-1-15.
  */
 public class TestScenario1 {
-    private Customer[] customers;
     private Order[] orders;
 
     @org.junit.Before
@@ -16,7 +15,7 @@ public class TestScenario1 {
         final String JSON_KLANT = "./data/klant.json";
         TestSetup initializer = new TestSetup();
         String jsonString = initializer.readContents(JSON_KLANT);
-        customers = initializer.getCustomers(jsonString);
+        Customer[] customers = initializer.getCustomers(jsonString);
         orders = initializer.getOrders(customers);
     }
 

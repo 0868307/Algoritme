@@ -1,4 +1,4 @@
-package scenario1;
+package pojos;
 
 /**
  * Created by Wouter on 1/24/2015.

@@ -1,4 +1,4 @@
-package scenario2;
+package pojos;
 
 import java.util.HashMap;
 

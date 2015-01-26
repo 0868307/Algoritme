@@ -1,6 +1,6 @@
-package scenario3;
+package adt;
 
-import scenario2.Pojo;
+import pojos.Pojo;
 
 /**
  * Created by Wouter on 1/24/2015.

@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
-import scenario2.Customer;
-import scenario2.CustomerList;
+import pojos.Customer;
+import logic.CustomerList;
 
 import static org.junit.Assert.*;
 

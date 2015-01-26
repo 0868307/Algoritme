@@ -1,4 +1,6 @@
-package scenario2;
+package logic;
+
+import pojos.Customer;
 
 import java.util.Arrays;
 import java.util.Random;
