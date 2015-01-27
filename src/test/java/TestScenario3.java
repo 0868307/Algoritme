@@ -51,8 +51,6 @@ public class TestScenario3 {
         }
         Random random = new Random();
         Customer randomCustomer = customers[random.nextInt(customers.length - 1)];
-        System.out.println("Random : "+randomCustomer);
         binaryTree.removeNode(randomCustomer);
-        binaryTree.print();
     }
 }
