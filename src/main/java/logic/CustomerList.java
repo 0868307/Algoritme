@@ -19,18 +19,53 @@ public class CustomerList {
         items = Arrays.copyOf(items, items.length + 1);
         items[items.length-1] = customer;
     }
-    public void insertionSortByAchternaam(Customer[] itemlist)
+
+    public void insertionSort(Customer[] itemlist, String key)
+    {
+            if(itemlist[0] != null)
+            {
+                if(itemlist[0].getString(key) != null)
+                {
+                    insertionSortByString(itemlist,key);
+                }else if (itemlist[0].getInteger(key) != null){
+                    insertionSortByInteger(itemlist,key);
+                }
+            }
+    }
+
+    public void insertionSortByString(Customer[] itemlist, String key)
     {
         for(int i=1;i<itemlist.length;i++)
         {
-            Customer value = itemlist[i];
-            int pos = i;
-            while(pos>0 && itemlist[pos-1].getAchternaam().charAt(0) > value.getAchternaam().charAt(0))
+            String value = itemlist[i].getString(key);
+            if(value != null)
             {
-                Customer temp = itemlist[pos];
-                itemlist[pos] = itemlist[pos-1];
-                itemlist[pos-1] = temp;
-                pos = pos-1;
+                int pos = i;
+                while(pos>0 && itemlist[pos-1].getString(key).charAt(0) > value.charAt(0))
+                {
+                    Customer temp = itemlist[pos];
+                    itemlist[pos] = itemlist[pos-1];
+                    itemlist[pos-1] = temp;
+                    pos = pos-1;
+                }
+            }
+        }
+    }
+    public void insertionSortByInteger(Customer[] itemlist, String key)
+    {
+        for(int i=1;i<itemlist.length;i++)
+        {
+            Integer value = itemlist[i].getInteger(key);
+            if(value != null)
+            {
+                int pos = i;
+                while(pos>0 && itemlist[pos-1].getInteger(key) > value)
+                {
+                    Customer temp = itemlist[pos];
+                    itemlist[pos] = itemlist[pos-1];
+                    itemlist[pos-1] = temp;
+                    pos = pos-1;
+                }
             }
         }
     }

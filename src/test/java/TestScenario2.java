@@ -54,7 +54,7 @@ public class TestScenario2 {
     @Test
     public void testInsertionSort() throws Exception {
         customers.shuffleArray(customers.getItems());
-        customers.insertionSortByAchternaam(customers.getItems());
+        customers.insertionSort(customers.getItems(), "achternaam");
         String[] expected = new String[]{
                 "Amatsetam",
                 "Blop",

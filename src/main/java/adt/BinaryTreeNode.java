@@ -5,7 +5,7 @@ import pojos.Pojo;
 /**
  * Created by darryl on 26-1-15.
  */
-class BinaryTreeNode {
+class BinaryTreeNode implements Comparable<BinaryTreeNode> {
     private Pojo object;
     private BinaryTreeNode parent,left,right;
     private String idString;
@@ -134,5 +134,11 @@ class BinaryTreeNode {
 
     public String toString() {
         return ""+object;
+    }
+
+    @Override
+    public int compareTo(BinaryTreeNode o) {
+
+        return 0;
     }
 }
