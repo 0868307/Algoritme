@@ -69,6 +69,21 @@ public class CustomerList {
             }
         }
     }
+    public void insertionSortLastElementByAchternaam(Customer[] itemlist){
+        String value = itemlist[itemlist.length-1].getString("achternaam");
+        if(value != null)
+        {
+            int pos = itemlist.length-1;
+            while(pos>0 && itemlist[pos-1].getString("achternaam").charAt(0) > value.charAt(0))
+            {
+                Customer temp = itemlist[pos];
+                itemlist[pos] = itemlist[pos-1];
+                itemlist[pos-1] = temp;
+                pos = pos-1;
+            }
+        }
+    }
+
     public boolean binarySearch(Customer[] itemList, int leeftijd)
     {
         if(itemList.length == 0)
@@ -89,6 +104,31 @@ public class CustomerList {
                 return binarySearch(right, leeftijd);
             }
         }
+    }
+    public Customer[] binarySearchAllOccurences(Customer[] itemList, int leeftijd)
+    {
+        Customer[] hits = new Customer[]{};
+        if(itemList.length == 0)
+        {
+            return null;
+        }
+        else {
+            int midden = Math.round((itemList.length-1) / 2);
+            if (itemList[midden].getLeeftijd() == leeftijd) {
+                System.arraycopy(hits,0,hits,0,hits.length+1);
+                hits[hits.length-1] = itemList[midden];
+
+            } else if (itemList[midden].getLeeftijd() > leeftijd) {
+                Customer[] left = new Customer[midden];
+                System.arraycopy(itemList, 0, left, 0, midden);
+                return binarySearchAllOccurences(left, leeftijd);
+            } else {
+                Customer[] right = new Customer[itemList.length - midden];
+                System.arraycopy(itemList, midden+1, right, 0, midden+1);
+                return binarySearchAllOccurences(right, leeftijd);
+            }
+        }
+        return hits;
     }
 
     public Customer linearSearchByLeeftijd(int leeftijd )
