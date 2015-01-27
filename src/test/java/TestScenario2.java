@@ -26,7 +26,7 @@ public class TestScenario2 {
     @Test
     public void testMergeSortAge() throws Exception {
         customers.shuffleArray(customers.getItems());
-        customers.mergeSortByAge(customers.getItems());
+        customers.mergeSort(customers.getItems(),"leeftijd");
         assertTrue(customers.get(0).getLeeftijd() < customers.get(1).getLeeftijd());
         assertTrue(customers.get(2).getLeeftijd() < customers.get(3).getLeeftijd());
     }
@@ -43,7 +43,7 @@ public class TestScenario2 {
 
     @Test
     public void testBinarySearch() throws Exception {
-        customers.mergeSortByAge(customers.getItems());
+        customers.mergeSort(customers.getItems(), "leeftijd");
         boolean expected = customers.binarySearch(customers.getItems(), 16);
         assertTrue("Value: " + expected, expected);
 

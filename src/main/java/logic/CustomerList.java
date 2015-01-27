@@ -114,8 +114,18 @@ public class CustomerList {
             ar[i] = a;
         }
     }
+    public void mergeSort(Customer[] itemlist, String key)
+    {
+           if(itemlist[0] != null){
+               if(itemlist[0].getString(key) != null){
+                   mergeSortByString(itemlist, key);
+               }else if(itemlist[0].getInteger(key) != null){
+                   mergeSortByInteger(itemlist, key);
+               }
+           }
+    }
 
-    public void mergeSortByAge(Customer[] itemlist)
+    public void mergeSortByInteger(Customer[] itemlist, String key)
     {
         if (itemlist.length > 1) {
             int middle = Math.round(itemlist.length / 2);
@@ -123,13 +133,50 @@ public class CustomerList {
             System.arraycopy(itemlist, 0, left, 0, middle);
             Customer[] right = new Customer[itemlist.length - middle];
             System.arraycopy(itemlist, middle, right, 0, itemlist.length - middle);
-            mergeSortByAge(left);
-            mergeSortByAge(right);
+            mergeSortByInteger(left, key);
+            mergeSortByInteger(right, key);
 
             int i=0,n=0,x=0;
             while(i < left.length && n < right.length)
             {
-                if(left[i].getLeeftijd() < right[n].getLeeftijd()){
+                if(left[i].getInteger(key) < right[n].getInteger(key)){
+                    itemlist[x] = left[i];
+                    i = i+1;
+                }else{
+                    itemlist[x] = right[n];
+                    n = n+1;
+                }
+                x = x +1;
+            }
+            while(i< left.length)
+            {
+                itemlist[x] = left[i];
+                i= i+1;
+                x = x+1;
+            }
+            while (n < right.length)
+            {
+                itemlist[x] = right[n];
+                n= n+1;
+                x = x+1;
+            }
+        }
+    }
+    public void mergeSortByString(Customer[] itemlist,String key)
+    {
+        if (itemlist.length > 1) {
+            int middle = Math.round(itemlist.length / 2);
+            Customer[] left = new Customer[middle];
+            System.arraycopy(itemlist, 0, left, 0, middle);
+            Customer[] right = new Customer[itemlist.length - middle];
+            System.arraycopy(itemlist, middle, right, 0, itemlist.length - middle);
+            mergeSortByString(left, key);
+            mergeSortByString(right, key);
+
+            int i=0,n=0,x=0;
+            while(i < left.length && n < right.length)
+            {
+                if(left[i].getString(key).charAt(0) < right[n].getString(key).charAt(0)){
                     itemlist[x] = left[i];
                     i = i+1;
                 }else{
